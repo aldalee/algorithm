@@ -49,9 +49,34 @@ func search(arr []int, target int) {
 		fmt.Printf("(%v,%v)", g.l, g.r)
 	}
 }
+
+// 暴力求解验证
+func expected(arr []int, target int) {
+	min, size := 0, len(arr)
+	for i := 0; i < size; i++ {
+		if arr[i] == target {
+			fmt.Println(i)
+			break
+		}
+		if arr[i] < target {
+			min = i
+		} else {
+			break
+		}
+	}
+	l, r := min, min+1
+	if l >= size {
+		r = size - 1
+		l = size - 1
+	}
+	fmt.Printf("(%v,%v)\n", l, r)
+	fmt.Printf("arr[l] = %v,arr[r] = %v", arr[l], arr[r])
+}
 func main() {
 	arr := []int{1, 3, 5, 7}
 	//arr := []int{1, 3, 5, 7, 9}
-	target := 4
+	target := -1
 	search(arr, target)
+	fmt.Println("\n------------------------------")
+	expected(arr, target)
 }
