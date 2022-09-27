@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 /**
  * 选择排序
+ * O(n^2)
+ * 算法不稳定
  * @author HuanyuLee
  */
 public class Code01_SelectionSort {
     /**
-     * 升序
+     * 选择排序
      * @param arr array
      */
     public static void selectionSort(int[] arr) {
@@ -18,6 +20,7 @@ public class Code01_SelectionSort {
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
+                // 升序
                 minIndex = arr[j] < arr[minIndex] ? j : minIndex;
             }
             swap(arr, i, minIndex);
@@ -28,12 +31,5 @@ public class Code01_SelectionSort {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {8, 9, 2, 4, 5, 1};
-        System.out.println("arr = " + Arrays.toString(arr));
-        selectionSort(arr);
-        System.out.println("arr = " + Arrays.toString(arr));
     }
 }
