@@ -1,9 +1,5 @@
 package class01;
 
-import static class01.util.Utils.*;
-
-import java.util.Arrays;
-
 /**
  * 插入排序
  * Ω(n)

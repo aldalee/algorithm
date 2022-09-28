@@ -1,7 +1,5 @@
 package class01;
 
-import java.util.Arrays;
-
 /**
  * 选择排序
  * O(n^2)

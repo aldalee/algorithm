@@ -1,7 +1,5 @@
 package class01;
 
-import java.util.Arrays;
-
 /**
  * 冒泡排序
  * O(n^2)
