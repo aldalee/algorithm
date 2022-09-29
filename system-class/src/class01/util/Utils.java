@@ -26,6 +26,23 @@ public class Utils {
     }
 
     /**
+     * 生成长度随机、值随机、相邻不相等的数组
+     * @param maxSize  数组的最大长度
+     * @param maxValue 数组的最大值
+     * @return array
+     */
+    public static int[] generateAdjacentNotEqualRandomArray(int maxSize, int maxValue) {
+        int[] arr = new int[(int) (Math.random() * maxSize) + 1];
+        arr[0] = (int) (Math.random() * maxValue) - (int) (Math.random() * maxValue);
+        for (int i = 1; i < arr.length; i++) {
+            do {
+                arr[i] = (int) (Math.random() * maxValue) - (int) (Math.random() * maxValue);
+            } while (arr[i] == arr[i - 1]);
+        }
+        return arr;
+    }
+
+    /**
      * 拷贝数组
      * @param arr 待拷贝数组
      * @return copyArray
