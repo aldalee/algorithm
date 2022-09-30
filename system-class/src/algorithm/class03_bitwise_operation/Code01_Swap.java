@@ -1,4 +1,4 @@
-package class03_bitwise_operation;
+package algorithm.class03_bitwise_operation;
 
 import java.util.Arrays;
 
