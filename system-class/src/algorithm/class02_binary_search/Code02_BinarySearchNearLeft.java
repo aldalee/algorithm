@@ -1,4 +1,4 @@
-package class02_binary_search;
+package algorithm.class02_binary_search;
 
 /**
  * 二分搜索的扩展
