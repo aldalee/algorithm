@@ -1,4 +1,4 @@
-package class03_bitwise_operation;
+package algorithm.class03_bitwise_operation;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author HuanyuLee
  * @date 2022/9/29
  */
-public class Code02_EvenTimesOddTimes {
+public class Code03_EvenTimesOddTimes {
     // arr[] 中只有一种数出现奇数次，其余数都出现偶数次
     // 找到这种出现奇数次的数并打印
     // 例如：arr = [4, 3, 4, 2, 4, 3, 1, 2, 1, 1, 1, 3, 3]
