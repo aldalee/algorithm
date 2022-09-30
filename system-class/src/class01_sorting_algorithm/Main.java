@@ -1,11 +1,9 @@
-package class01;
+package class01_sorting_algorithm;
 
 import java.util.Arrays;
 
-import static class01.Code01_SelectionSort.selectionSort;
-import static class01.Code02_BubbleSort.bubbleSort;
-import static class01.Code03_InsertionSort.insertionSort;
-import static class01.util.Utils.*;
+import static class01_sorting_algorithm.Code03_InsertionSort.insertionSort;
+import static util.Utils.*;
 
 /**
  * 利用对数器测试各种排序算法

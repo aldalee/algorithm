@@ -1,4 +1,4 @@
-package class01;
+package class01_sorting_algorithm;
 
 /**
  * 选择排序
