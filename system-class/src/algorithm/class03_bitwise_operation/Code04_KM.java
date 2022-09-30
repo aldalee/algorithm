@@ -3,6 +3,7 @@ package algorithm.class03_bitwise_operation;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import static algorithm.class03_bitwise_operation.Code05_KM2.isKTimes;
 import static util.Utils.generateKMRandomArray;
 
 /**
@@ -39,6 +40,7 @@ public class Code04_KM {
                 map.put(num, 1);
             }
         }
+        // System.out.println(map);
         for (int num : map.keySet()) {
             if (map.get(num) == k) {
                 return num;
@@ -52,6 +54,7 @@ public class Code04_KM {
         int maxValue = 200;
         int testTimes = 10000;
         int max = 9;
+        double p = 0.5;
         boolean succeed = true;
         for (int i = 0; i < testTimes; i++) {
             int a = (int) (Math.random() * max) + 1;    // a ∈ [1,9]
@@ -62,10 +65,13 @@ public class Code04_KM {
             if (k == m) {
                 m++;
             }
-            int[] arr = generateKMRandomArray(maxKinds, maxValue, k, m);
+            int[] arr = generateKMRandomArray(maxKinds, maxValue, k, p, m);
             int ans1 = hash(arr, k, m);
-            int ans2 = onlyKTimes(arr, k, m);
+            // int ans2 = onlyKTimes(arr, k, m);
+            int ans2 = isKTimes(arr, k, m);
             if (ans1 != ans2) {
+                System.out.println("k = " + k);
+                System.out.println("m = " + m);
                 System.out.println("arr = " + Arrays.toString(arr));
                 System.out.println("ans1 = " + ans1);
                 System.out.println("ans2 = " + ans2);
