@@ -1,17 +1,15 @@
-package class01;
+package class02_binary_search;
 
 import java.util.Arrays;
 
-import static class01.Code05_BinarySearchNearLeft.binarySearchNearestLeft;
-import static class01.Code05_BinarySearchNearLeft.bruteForceSearchNearestLeft;
-import static class01.util.Utils.generateRandomArray;
+import static util.Utils.generateRandomArray;
 
 /**
  * 二分搜索的扩展
  * @author HuanyuLee
  * @date 2022/9/29
  */
-public class Code06_BinarySearchNearRight {
+public class Code03_BinarySearchNearRight {
     /**
      * 在数组arr中，二分搜索 <= target最右的位置
      * @param arr    升序数组

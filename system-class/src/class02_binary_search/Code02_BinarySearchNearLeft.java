@@ -1,11 +1,11 @@
-package class01;
+package class02_binary_search;
 
 /**
  * 二分搜索的扩展
  * @author HuanyuLee
  * @date 2022/9/29
  */
-public class Code05_BinarySearchNearLeft {
+public class Code02_BinarySearchNearLeft {
     /**
      * 在数组arr中，二分搜索 >= target最左的位置
      * @param arr    升序数组

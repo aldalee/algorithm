@@ -1,15 +1,15 @@
-package class01;
+package class02_binary_search;
 
 import java.util.Arrays;
 
-import static class01.util.Utils.generateRandomArray;
+import static util.Utils.generateRandomArray;
 
 /**
  * 二分搜索
  * @author HuanyuLee
  * @date 2022/9/29
  */
-public class Code04_BinarySearch {
+public class Code01_BinarySearch {
     /**
      * 在有序数组arr中二分搜索目标值target所在的索引下标
      * @param arr    升序数组

@@ -1,8 +1,8 @@
-package class01;
+package class02_binary_search;
 
 import java.util.Arrays;
 
-import static class01.util.Utils.generateAdjacentNotEqualRandomArray;
+import static util.Utils.generateAdjacentNotEqualRandomArray;
 
 /**
  * 二分搜索局部最小值
@@ -15,7 +15,7 @@ import static class01.util.Utils.generateAdjacentNotEqualRandomArray;
  * @author HuanyuLee
  * @date 2022/9/29
  */
-public class Code07_BinarySearchLocalMinimum {
+public class Code04_BinarySearchLocalMinimum {
     public static int getLocalMinimumIndex(int[] arr) {
         if (arr == null || arr.length == 0)
             return -1;
