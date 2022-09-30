@@ -1,8 +1,7 @@
-package class01_sorting_algorithm;
+package algorithm.class01_sorting;
 
 import java.util.Arrays;
 
-import static class01_sorting_algorithm.Code03_InsertionSort.insertionSort;
 import static util.Utils.*;
 
 /**
@@ -22,7 +21,7 @@ public class Main {
             int[] arr2 = copyArray(arr);
             // selectionSort(arr1);
             // bubbleSort(arr1);
-            insertionSort(arr1);
+            Code03_InsertionSort.insertionSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
