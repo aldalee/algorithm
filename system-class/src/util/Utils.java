@@ -1,5 +1,7 @@
 package util;
 
+import datastructure.linearlist.struct.Node;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -92,7 +94,7 @@ public class Utils {
      * @param range 范围
      * @return number
      */
-    private static int randomNumber(int range) {
+    public static int randomNumber(int range) {
         return (int) (Math.random() * (range + 1)) - (int) (Math.random() * (range + 1));
     }
 
@@ -147,5 +149,53 @@ public class Utils {
      */
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
+    }
+
+    public static Node<String> generateRandomLinkedList(int maxSize) {
+        int size = Math.abs(randomNumber(maxSize));
+        if (size == 0) {
+            return null;
+        }
+        // [A,Z]随机填充
+        String s = "" + (char)(Math.abs(randomNumber(25)) + 65);
+        Node<String> head = new Node<>(s);
+        Node<String> prev = head;
+        while (--size != 0) {
+            s = "" + (char)(Math.abs(randomNumber(25)) + 65);
+            Node<String> cur = new Node<>(s);
+            prev.next = cur;
+            prev = cur;
+        }
+        return head;
+    }
+
+    /**
+     * 生成长度随机、整数值随机的单链表
+     * @param maxSize  链表的最大长度
+     * @param maxValue 链表的最大值
+     * @return head
+     */
+    public static Node<Integer> generateRandomLinkedList(int maxSize, int maxValue) {
+        int size = Math.abs(randomNumber(maxSize));
+        if (size == 0) {
+            return null;
+        }
+        Node<Integer> head = new Node<>(randomNumber(maxValue));
+        Node<Integer> prev = head;
+        while (--size != 0) {
+            Node<Integer> cur = new Node<>(randomNumber(maxValue));
+            prev.next = cur;
+            prev = cur;
+        }
+        return head;
+    }
+
+    public static void printNode(Node<String> head) {
+        while (head != null) {
+            System.out.print(head.data);
+            head = head.next;
+            System.out.print(head == null ? "" : " -> ");
+        }
+        System.out.println();
     }
 }
