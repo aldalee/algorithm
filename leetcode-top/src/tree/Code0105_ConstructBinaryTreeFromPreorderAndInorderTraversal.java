@@ -1,3 +1,5 @@
+package tree;
+
 import java.util.HashMap;
 
 /**
@@ -7,13 +9,12 @@ import java.util.HashMap;
  * @date 2023/4/17
  */
 public class Code0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
-    HashMap<Integer, Integer> map;  //<value, index>
+    HashMap<Integer, Integer> map = new HashMap<>();  //<value, index>
 
     public TreeNode buildTree(int[] pre, int[] in) {
         if (pre == null || in == null || pre.length != in.length) {
             return null;
         }
-        map = new HashMap<>();
         for (int i = 0; i < in.length; i++) {
             map.put(in[i], i);
         }
