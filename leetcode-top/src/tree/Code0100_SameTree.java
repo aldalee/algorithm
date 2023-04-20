@@ -1,3 +1,5 @@
+package tree;
+
 /**
  * https://leetcode.cn/problems/same-tree/
  * 相同的树
