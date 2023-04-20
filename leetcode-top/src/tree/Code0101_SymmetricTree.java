@@ -1,3 +1,5 @@
+package tree;
+
 /**
  * https://leetcode.cn/problems/symmetric-tree
  * 对称二叉树
