@@ -6,7 +6,7 @@ package algorithm.sorting;
  * @date 2023/5/7
  */
 public class HeapSort {
-    public void heapSort(int[] arr) {
+    public static void heapSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         int heapSize = arr.length;
         for (int i = heapSize - 1; i >= 0; i--) {
@@ -18,15 +18,16 @@ public class HeapSort {
         }
     }
 
-    private void heapify(int[] arr, int index, int heapSize) {
-        int L = 2 * index + 1;
-        int R = 2 * index + 2;
-        int largest = index;      //Initialize largest as root.
-        if (L < heapSize && arr[L] > arr[largest]) largest = L;
-        if (R < heapSize && arr[R] > arr[largest]) largest = R;
-        if (largest != index) {
+    private static void heapify(int[] arr, int index, int heapSize) {
+        while (true) {
+            int L = 2 * index + 1;
+            int R = 2 * index + 2;
+            int largest = index;
+            if (L < heapSize && arr[L] > arr[largest]) largest = L;
+            if (R < heapSize && arr[R] > arr[largest]) largest = R;
+            if (largest == index) break;
             swap(arr, index, largest);
-            heapify(arr, largest, heapSize);
+            index = largest;
         }
     }
 
