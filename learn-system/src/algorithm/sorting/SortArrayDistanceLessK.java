@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
  * @date 2023/5/7
  */
 public class SortArrayDistanceLessK {
-    public void sortedArrayDistanceLessK(int[] arr, int k) {
+    public static void sortedArrayDistanceLessK(int[] arr, int k) {
         if (k == 0 || arr == null || arr.length < 2) return;
         PriorityQueue<Integer> heap = new PriorityQueue<>();
         int n = arr.length;
