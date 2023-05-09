@@ -8,16 +8,16 @@ import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 
-public class Code004DoubleLinkedListToDequeTest {
+public class DoubleLinkedListToDequeTest {
     private static final int VALUE = 99999;
     private static final int TEST_CASES = 100000;
 
-    private Code004_DoubleLinkedListToDeque<Integer> myDeque;
+    private DoubleLinkedListToDeque<Integer> myDeque;
     private Deque<Integer> deque;
 
     @Before
     public void init() {
-        myDeque = new Code004_DoubleLinkedListToDeque<>();
+        myDeque = new DoubleLinkedListToDeque<>();
         deque = new LinkedList<>();
     }
 

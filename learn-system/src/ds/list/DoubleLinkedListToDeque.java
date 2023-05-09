@@ -5,12 +5,12 @@ package ds.list;
  * @author HuanyuLee
  * @date 2023/4/28
  */
-public class Code004_DoubleLinkedListToDeque<T> {
+public class DoubleLinkedListToDeque<T> {
     private DoubleListNode<T> head;
     private DoubleListNode<T> tail;
     private int size;
 
-    public Code004_DoubleLinkedListToDeque() {
+    public DoubleLinkedListToDeque() {
     }
 
     public boolean isEmpty() {
