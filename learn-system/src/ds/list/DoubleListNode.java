@@ -5,19 +5,19 @@ package ds.list;
  * @author HuanyuLee
  * @date 2023/4/21
  */
-public class DoubleListNode {
-    public int value;
-    public DoubleListNode prev;
-    public DoubleListNode next;
+public class DoubleListNode<T> {
+    public T value;
+    public DoubleListNode<T> prev;
+    public DoubleListNode<T> next;
 
     public DoubleListNode() {
     }
 
-    public DoubleListNode(int value) {
+    public DoubleListNode(T value) {
         this.value = value;
     }
 
-    public DoubleListNode(int value, DoubleListNode prev, DoubleListNode next) {
+    public DoubleListNode(T value, DoubleListNode<T> prev, DoubleListNode<T> next) {
         this.value = value;
         this.prev = prev;
         this.next = next;
