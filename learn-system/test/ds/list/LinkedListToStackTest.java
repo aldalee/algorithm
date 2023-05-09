@@ -9,15 +9,15 @@ import java.util.Stack;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
-public class Code003LinkedListToStackTest {
+public class LinkedListToStackTest {
     private static final int VALUE = 99999;
     private static final int TEST_CASES = 100000;
-    private Code003_LinkedListToStack<Integer> myStack;
+    private LinkedListToStack<Integer> myStack;
     private Stack<Integer> stack;
 
     @Before
     public void setUp(){
-        myStack = new Code003_LinkedListToStack<>();
+        myStack = new LinkedListToStack<>();
         stack = new Stack<>();
     }
 

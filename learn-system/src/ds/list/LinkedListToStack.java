@@ -5,11 +5,11 @@ package ds.list;
  * @author HuanyuLee
  * @date 2023/4/21
  */
-public class Code003_LinkedListToStack<T> {
+public class LinkedListToStack<T> {
     private Node<T> head;
     private int size;
 
-    public Code003_LinkedListToStack() {
+    public LinkedListToStack() {
     }
 
     public boolean isEmpty() {
