@@ -8,15 +8,15 @@ import java.util.Queue;
 
 import static org.junit.Assert.*;
 
-public class Code002LinkedListToQueueTest {
+public class LinkedListToQueueTest {
     private static final int VALUE = 100;
     private static final int TEST_CASES = 100000;
-    private Code002_LinkedListToQueue<Integer> myQueue;
+    private LinkedListToQueue<Integer> myQueue;
     private Queue<Integer> queue;
 
     @Before
     public void setUp() {
-        myQueue = new Code002_LinkedListToQueue<>();
+        myQueue = new LinkedListToQueue<>();
         queue = new LinkedList<>();
     }
 

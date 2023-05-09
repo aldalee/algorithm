@@ -5,12 +5,12 @@ package ds.list;
  * @author HuanyuLee
  * @date 2023/4/21
  */
-public class Code002_LinkedListToQueue<T> {
+public class LinkedListToQueue<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
 
-    public Code002_LinkedListToQueue() {
+    public LinkedListToQueue() {
     }
 
     public boolean isEmpty() {
