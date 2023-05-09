@@ -1,8 +1,8 @@
-package algorithm.sorting;
+package ds.heap;
 
 import org.junit.Test;
 
-import static algorithm.sorting.MaximumLineSegmentCoincidenceProblem.*;
+import static ds.heap.MaximumLineSegmentCoincidenceProblem.*;
 import static org.junit.Assert.assertEquals;
 import static tool.ArraysUtil.generateLines;
 

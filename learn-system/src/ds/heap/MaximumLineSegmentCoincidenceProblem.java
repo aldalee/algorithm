@@ -1,4 +1,4 @@
-package algorithm.sorting;
+package ds.heap;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,6 +6,11 @@ import java.util.PriorityQueue;
 
 /**
  * 最大线段重合问题（用堆实现）
+ * 题目描述：给定很多线段，每个线段都有两个数[start, end]，表示线段开始位置和结束位置，左右都是闭区间
+ * 规定：
+ *    1）线段的开始和结束位置一定都是整数值
+ *    2）线段重合区域的长度必须>=1
+ * 要求：返回线段最多重合区域中，包含了几条线段
  * @author HuanyuLee
  * @date 2023/5/8
  */
