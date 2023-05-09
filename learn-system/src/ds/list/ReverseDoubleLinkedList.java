@@ -6,10 +6,10 @@ package ds.list;
  * @author HuanyuLee
  * @date 2023/4/21
  */
-public class Code001_ReverseDoubleLinkedList {
-    public static DoubleListNode reverseDoubleList(DoubleListNode head){
-        DoubleListNode pre = null;
-        DoubleListNode next;
+public class ReverseDoubleLinkedList<T> {
+    public DoubleListNode<T> reverseDoubleList(DoubleListNode<T> head){
+        DoubleListNode<T> pre = null;
+        DoubleListNode<T> next;
         while (head != null) {
             next = head.next;
             head.next = pre;
