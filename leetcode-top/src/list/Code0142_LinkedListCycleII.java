@@ -33,20 +33,17 @@ public class Code0142_LinkedListCycleII {
      * @return 链表开始入环的第一个节点。如果链表无环，则返回null。
      */
     public ListNode detectCycle(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) {
-            return null;
-        }
-        ListNode slow = head.next;
-        ListNode fast = head.next.next;
-        while (slow != fast) {
-            if (fast.next == null || fast.next.next == null) {
+        if (head == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        do {
+            if (fast == null || fast.next == null) {
                 return null;
             }
             fast = fast.next.next;
             slow = slow.next;
-        }
-        // slow和fast第一次相遇了
-        fast = head;
+        } while (slow != fast);
+        fast = head;    // slow和fast相遇了，fast回到head
         while (slow != fast) {
             slow = slow.next;
             fast = fast.next;
