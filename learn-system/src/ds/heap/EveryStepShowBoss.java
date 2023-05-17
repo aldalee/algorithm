@@ -101,7 +101,7 @@ public class EveryStepShowBoss {
      * @param arr 得奖区或候选区数组
      */
     private static void cleanZeroArea(List<Customer> arr) {
-        List<Customer> noZero = new ArrayList<Customer>();
+        List<Customer> noZero = new ArrayList<>();
         for (Customer c : arr) {
             if (c.buy != 0) {
                 noZero.add(c);
