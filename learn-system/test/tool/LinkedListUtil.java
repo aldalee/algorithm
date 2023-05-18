@@ -19,7 +19,7 @@ public class LinkedListUtil {
         DoubleListNode<Integer> pre = head;
         DoubleListNode<Integer> cur;
         while (--size != 0) {
-            cur = new DoubleListNode<Integer>(rand.nextInt(VALUE + 1));
+            cur = new DoubleListNode<>(rand.nextInt(VALUE + 1));
             pre.next = cur;
             cur.prev = pre;
             pre = cur;
