@@ -6,12 +6,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * 打印二叉树的形状
- * @author HuanyuLee
- * @date 2023/4/18
- */
-public class BinaryTreePrinter {
+public class BinaryTreeUtil {
+    /**
+     * 生成一棵二叉树
+     * @param maxLevel 最大层数
+     * @param maxValue 最大值
+     * @return 二叉树根节点
+     */
+    public static TreeNode generateRandomBST(int maxLevel, int maxValue) {
+        return generate(1, maxLevel, maxValue);
+    }
+
+    private static TreeNode generate(int level, int maxLevel, int maxValue) {
+        if (level > maxLevel || Math.random() < 0.5) {
+            return null;
+        }
+        TreeNode head = new TreeNode((int) (Math.random() * maxValue));
+        head.left = generate(level + 1, maxLevel, maxValue);
+        head.right = generate(level + 1, maxLevel, maxValue);
+        return head;
+    }
+
+    /**
+     * 打印二叉树的形状
+     * @param root 二叉树根节点
+     */
     public static void printTree(TreeNode root) {
         int maxLevel = maxLevel(root);
         printTreeInternal(Collections.singletonList(root), 1, maxLevel);
