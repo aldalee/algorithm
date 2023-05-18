@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static tool.BinaryTreePrinter.printTree;
+import static tool.BinaryTreeUtil.printTree;
 
 public class FindAncestorsOfGivenBinaryTreeNodeTest {
     FindAncestorsOfGivenBinaryTreeNode f = new FindAncestorsOfGivenBinaryTreeNode();
