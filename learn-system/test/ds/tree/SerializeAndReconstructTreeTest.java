@@ -1,30 +1,17 @@
 package ds.tree;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Queue;
 
 import static org.junit.Assert.assertTrue;
-import static tool.BinaryTreeUtil.printTree;
+import static tool.BinaryTreeUtil.generateRandomBST;
 
 public class SerializeAndReconstructTreeTest {
+    final int MAX_LEVEL = 6;
+    final int MAX_VALUE = 100;
+    final int TEST_CASES = 100000;
     SerializeAndReconstructTree bt = new SerializeAndReconstructTree();
-    TreeNode root;
-
-    @Before
-    public void initBT() {
-        root = new TreeNode(0);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right.left = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-        root.left.left.left = new TreeNode(7);
-        root.right.left.left = new TreeNode(8);
-        printTree(root);
-    }
 
     private boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
@@ -38,28 +25,31 @@ public class SerializeAndReconstructTreeTest {
 
     @Test
     public void testPreorderSerialize() {
-        Queue<String> queue = bt.preorderSerialize(root);
-        System.out.println("queue = " + queue);
-
-        TreeNode head = bt.preorderDeserialize(queue);
-        assertTrue(isSameTree(root, head));
+        for (int i = 0; i < TEST_CASES; i++) {
+            TreeNode root = generateRandomBST(MAX_LEVEL,MAX_VALUE);
+            Queue<String> preQueue = bt.preorderSerialize(root);
+            TreeNode head = bt.preorderDeserialize(preQueue);
+            assertTrue(isSameTree(root, head));
+        }
     }
 
     @Test
     public void testLevelOrderSerialize() {
-        Queue<String> queue = bt.levelOrderSerialize(root);
-        System.out.println("queue = " + queue);
-
-        TreeNode head = bt.levelOrderDeserialize(queue);
-        assertTrue(isSameTree(root, head));
+        for (int i = 0; i < TEST_CASES; i++) {
+            TreeNode root = generateRandomBST(MAX_LEVEL,MAX_VALUE);
+            Queue<String> preQueue = bt.levelOrderSerialize(root);
+            TreeNode head = bt.levelOrderDeserialize(preQueue);
+            assertTrue(isSameTree(root, head));
+        }
     }
 
     @Test
     public void testPostOrderSerialize() {
-        Queue<String> queue = bt.postOrderSerialize(root);
-        System.out.println("queue = " + queue);
-
-        TreeNode head = bt.postOrderDeserialize(queue);
-        assertTrue(isSameTree(root, head));
+        for (int i = 0; i < TEST_CASES; i++) {
+            TreeNode root = generateRandomBST(MAX_LEVEL,MAX_VALUE);
+            Queue<String> preQueue = bt.postOrderSerialize(root);
+            TreeNode head = bt.postOrderDeserialize(preQueue);
+            assertTrue(isSameTree(root, head));
+        }
     }
 }
