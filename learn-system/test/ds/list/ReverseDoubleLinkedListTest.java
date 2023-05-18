@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.fail;
-import static tool.GenerateRandomDoubleList.generateRandomDoubleList;
+import static tool.LinkedListUtil.generateRandomDoubleList;
 
 public class ReverseDoubleLinkedListTest {
     private static final int LENGTH = 50;
