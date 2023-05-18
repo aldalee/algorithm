@@ -1,10 +1,17 @@
 package tool;
 
+
 import ds.list.DoubleListNode;
 
 import java.util.Random;
 
-public class GenerateRandomDoubleList {
+public class LinkedListUtil {
+    /**
+     * 随机生成双链表
+     * @param LENGTH 链表长度
+     * @param VALUE  链表最大值
+     * @return 双链表头结点
+     */
     public static DoubleListNode<Integer> generateRandomDoubleList(final int LENGTH, final int VALUE) {
         Random rand = new Random();
         int size = rand.nextInt(LENGTH + 1);
