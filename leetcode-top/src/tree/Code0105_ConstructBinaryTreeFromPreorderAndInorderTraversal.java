@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
@@ -9,39 +10,39 @@ import java.util.HashMap;
  * @date 2023/4/17
  */
 public class Code0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
-    HashMap<Integer, Integer> map = new HashMap<>();  //<value, index>
-
-    public TreeNode buildTree(int[] pre, int[] in) {
-        if (pre == null || in == null || pre.length != in.length) {
-            return null;
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+        // 构建中序遍历序列中值到索引的映射
+        Map<Integer, Integer> inorderMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            inorderMap.putIfAbsent(inorder[i], i);
         }
-        for (int i = 0; i < in.length; i++) {
-            map.put(in[i], i);
-        }
-        return f(pre, 0, pre.length - 1, in, 0, in.length - 1);
+        return build(preorder, 0, n - 1, 0, n - 1, inorderMap);
     }
 
     /**
-     * 利用先序数组和中序数组构建二叉树并返回根节点
-     * @param pre 先序遍历数组
-     * @param L1  pre的下标开始位置
-     * @param R1  pre的下标结束位置
-     * @param in  中序遍历数组
-     * @param L2  in的下标开始位置
-     * @param R2  in的下标结束位置
-     * @return TreeNode 树的根节点
+     * 根据先序遍历和中序遍历序列构建二叉树
+     * @param pre      先序遍历序列
+     * @param preStart 先序遍历序列的起始索引
+     * @param preEnd   先序遍历序列的结束索引
+     * @param inStart  中序遍历序列的起始索引
+     * @param inEnd    中序遍历序列的结束索引
+     * @param map      中序遍历序列中值到索引的映射
+     * @return 构建的二叉树的根节点
      */
-    TreeNode f(int[] pre, int L1, int R1, int[] in, int L2, int R2) {
-        if (L1 > R1) {
+    private TreeNode build(int[] pre, int preStart, int preEnd, int inStart, int inEnd, Map<Integer, Integer> map) {
+        if (preStart > preEnd || inStart > inEnd) {
             return null;
         }
-        TreeNode root = new TreeNode(pre[L1]);
-        if (L1 == R1) {
-            return root;
-        }
-        int find = map.get(pre[L1]);
-        root.left = f(pre, L1 + 1, L1 + find - L2, in, L2, find - 1);
-        root.right = f(pre, L1 + find - L2 + 1, R1, in, find + 1, R2);
+        int rootVal = pre[preStart];                    // 先序序列的第一个元素是当前子树的根节点
+        TreeNode root = new TreeNode(rootVal);
+
+        int rootIndex = map.get(rootVal);               // 在中序序列中找到根节点的索引
+        int leftSubtreeLen = rootIndex - inStart;       // 计算左子树的长度
+        // 递归构建左子树
+        root.left = build(pre, preStart + 1, preStart + leftSubtreeLen, inStart, rootIndex - 1, map);
+        // 递归构建右子树
+        root.right = build(pre, preStart + leftSubtreeLen + 1, preEnd, rootIndex + 1, inEnd, map);
         return root;
     }
 }
