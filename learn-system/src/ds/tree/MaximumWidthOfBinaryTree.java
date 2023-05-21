@@ -50,7 +50,7 @@ public class MaximumWidthOfBinaryTree {
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        // key 在 哪一层，value
+        // key在哪一层，value
         HashMap<TreeNode, Integer> levelMap = new HashMap<>();
         levelMap.put(root, 1);
         int curLevel = 1;           // 当前你正在统计哪一层的宽度
