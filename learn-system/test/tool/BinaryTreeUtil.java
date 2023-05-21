@@ -1,5 +1,6 @@
 package tool;
 
+import ds.tree.Node;
 import ds.tree.TreeNode;
 
 import java.util.*;
@@ -56,6 +57,68 @@ public class BinaryTreeUtil {
     }
 
     /**
+     * 生成一棵带有parent指针的二叉树
+     * @param maxLevel 最大层数
+     * @param maxValue 最大值
+     * @return 二叉树根节点
+     */
+    public static Node generateRandomBSTWithParent(int maxLevel, int maxValue) {
+        if (maxLevel <= 0) {
+            return null;
+        }
+        Random random = new Random();
+        return generateNode(1, maxLevel, maxValue, random);
+    }
+
+    private static Node generateNode(int currentLevel, int maxLevel, int maxValue, Random random) {
+        if (currentLevel > maxLevel || random.nextInt(3) == 0) {
+            return null;
+        }
+        Node node = new Node(random.nextInt(maxValue + 1));
+        node.left = generateNode(currentLevel + 1, maxLevel, maxValue, random);
+        node.right = generateNode(currentLevel + 1, maxLevel, maxValue, random);
+        if (node.left != null) {
+            node.left.parent = node;
+        }
+        if (node.right != null) {
+            node.right.parent = node;
+        }
+        return node;
+    }
+
+    public static class Result {
+        public Node root;
+        public Node randomNode;
+
+        public Result(Node root, Node randomNode) {
+            this.root = root;
+            this.randomNode = randomNode;
+        }
+    }
+
+    /**
+     * 生成一棵带有parent指针的二叉树
+     * @param maxLevel 最大层数
+     * @param maxValue 最大值
+     * @return 二叉树根节点和任意一个节点
+     */
+    public static Result generateRandomBSTWithParent2(int maxLevel, int maxValue) {
+        if (maxLevel <= 0) {
+            return new Result(null, null);
+        }
+        Random random = new Random();
+        Node root = generateNode(1, maxLevel, maxValue, random);
+        List<Node> nodeList = new ArrayList<>();
+        in(root, nodeList);
+        Node randomNode = null;
+        if (!nodeList.isEmpty()) {
+            int randomIndex = random.nextInt(nodeList.size());
+            randomNode = nodeList.get(randomIndex);
+        }
+        return new Result(root, randomNode);
+    }
+
+    /**
      * 判断是否是相同的二叉树
      * @param p 第一个二叉树根节点
      * @param q 第二个二叉树根节点
@@ -105,6 +168,15 @@ public class BinaryTreeUtil {
         in(root.left, res);
         res.add(root.val);
         in(root.right, res);
+    }
+
+    private static void in(Node node, List<Node> res) {
+        if (node == null) {
+            return;
+        }
+        in(node.left, res);
+        res.add(node);
+        in(node.right, res);
     }
 
     /**
