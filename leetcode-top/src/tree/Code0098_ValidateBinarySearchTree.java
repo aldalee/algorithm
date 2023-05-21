@@ -43,44 +43,4 @@ public class Code0098_ValidateBinarySearchTree {
         }
         return true;
     }
-
-    //课上代码
-    static class Info {
-        boolean isBST;
-        int max;
-        int min;
-
-        public Info(boolean isBST, int max, int min) {
-            this.isBST = isBST;
-            this.max = max;
-            this.min = min;
-        }
-    }
-
-    Info f(TreeNode x) {
-        if (x == null) {
-            return null;
-        }
-        Info L = f(x.left);
-        Info R = f(x.right);
-        int max = x.val;
-        int min = x.val;
-        if (L != null) {
-            max = Math.max(L.max, max);
-            min = Math.min(L.min, min);
-        }
-        if (R != null) {
-            max = Math.max(R.max, max);
-            min = Math.min(R.min, min);
-        }
-        boolean isBST = false;
-        boolean leftIsBST = L == null || L.isBST;
-        boolean rightIsBST = R == null || R.isBST;
-        boolean leftMaxLessX = L == null || (L.max < x.val);
-        boolean rightMinMoreX = R == null || (R.min > x.val);
-        if (leftIsBST && rightIsBST && leftMaxLessX && rightMinMoreX) {
-            isBST = true;
-        }
-        return new Info(isBST, max, min);
-    }
 }
