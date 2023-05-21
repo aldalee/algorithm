@@ -2,9 +2,7 @@ package tool;
 
 import ds.tree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class BinaryTreeUtil {
     /**
@@ -26,6 +24,115 @@ public class BinaryTreeUtil {
         head.right = generate(level + 1, maxLevel, maxValue);
         return head;
     }
+
+    /**
+     * 生成一棵值不同的二叉树
+     * @param maxLevel 最大层数
+     * @param maxValue 最大值
+     * @return 二叉树根节点
+     */
+    public static TreeNode generateRandomBT(int maxLevel, int maxValue) {
+        Set<Integer> usedValues = new HashSet<>();
+        return generateRandomBT(maxLevel, maxValue, usedValues);
+    }
+
+    private static TreeNode generateRandomBT(int maxLevel, int maxValue, Set<Integer> usedValues) {
+        if (maxLevel <= 0) {
+            return null;
+        }
+        if (usedValues.size() == maxValue + 1) {
+            return null; // 所有可用的值都已使用，终止生成
+        }
+        Random random = new Random();
+        int val;
+        do {
+            val = random.nextInt(maxValue + 1);
+        } while (usedValues.contains(val));
+        usedValues.add(val);
+        TreeNode node = new TreeNode(val);
+        node.left = generateRandomBT(maxLevel - 1, maxValue, usedValues);
+        node.right = generateRandomBT(maxLevel - 1, maxValue, usedValues);
+        return node;
+    }
+
+    /**
+     * 判断是否是相同的二叉树
+     * @param p 第一个二叉树根节点
+     * @param q 第二个二叉树根节点
+     * @return 是否相同
+     */
+    public static boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
+    /**
+     * 生成二叉树的先序遍历序列，数组保存
+     * @param root 二叉树根节点
+     * @return 先序遍历序列
+     */
+    public static int[] preorder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        pre(root, res);
+        return change(res);
+    }
+
+    private static void pre(TreeNode root, List<Integer> res) {
+        if (root == null) return;
+        res.add(root.val);
+        pre(root.left, res);
+        pre(root.right, res);
+    }
+
+    /**
+     * 生成二叉树的中序遍历序列，数组保存
+     * @param root 二叉树根节点
+     * @return 中序遍历序列
+     */
+    public static int[] inorder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        in(root, res);
+        return change(res);
+    }
+
+    private static void in(TreeNode root, List<Integer> res) {
+        if (root == null) return;
+        in(root.left, res);
+        res.add(root.val);
+        in(root.right, res);
+    }
+
+    /**
+     * 生成二叉树的后序遍历序列，数组保存
+     * @param root 二叉树根节点
+     * @return 后序遍历序列
+     */
+    public static int[] postorder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        post(root, res);
+        return change(res);
+    }
+
+    private static void post(TreeNode root, List<Integer> res) {
+        if (root == null) return;
+        post(root.left, res);
+        post(root.right, res);
+        res.add(root.val);
+    }
+
+    private static int[] change(List<Integer> list) {
+        int[] arr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+        return arr;
+    }
+
 
     /**
      * 打印二叉树的形状
