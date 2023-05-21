@@ -6,11 +6,11 @@ import static org.junit.Assert.assertEquals;
 import static tool.BinaryTreeUtil.Result;
 import static tool.BinaryTreeUtil.generateRandomBSTWithParent2;
 
-public class InorderSuccessorInBSTTest {
+public class SuccessorNodeTest {
     final int MAX_LEVEL = 20;
     final int MAX_VALUE = 10000;
     final int TEST_CASES = 1000000;
-    InorderSuccessorInBST bst = new InorderSuccessorInBST();
+    SuccessorNode bst = new SuccessorNode();
 
     @Test
     public void testInorderSuccessor(){

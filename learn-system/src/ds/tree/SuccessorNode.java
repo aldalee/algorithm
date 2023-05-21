@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 二叉搜索树中的中序后继
+ * 二叉树中的后继节点
  * @author HuanyuLee
  * @date 2023/5/21
  */
-public class InorderSuccessorInBST {
+public class SuccessorNode {
     /**
      * 优化暴力解
      * @param x 给定的二叉树节点
