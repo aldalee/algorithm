@@ -56,6 +56,39 @@ public class PartyMaximumHappiness {
         return Math.max(bossInfo.noAttend, bossInfo.attend);
     }
 
+    // 解法二 暴力递归
+    // 运行超时
+    public static int maxHappiness(Employee boss) {
+        if (boss == null) {
+            return 0;
+        }
+        return party(boss, false);
+    }
+
+    /**
+     * 对当前的节点employee进行递归
+     * @param employee 当前的节点
+     * @param up       employee的上级是否参加
+     * @return 以employee为根的派对的最大值
+     */
+    private static int party(Employee employee, boolean up) {
+        if (up) {       // 如果employee的上级参加，则employee只能不参加
+            int p1 = 0;
+            for (Employee next : employee.nexts) {
+                p1 += party(next, false);
+            }
+            return p1;
+        } else {        // 如果employee的上级不参加，则employee可以参加也可以不参加
+            int p2 = employee.happy;
+            int p3 = 0;
+            for (Employee next : employee.nexts) {
+                p2 += party(next, true);
+                p3 += party(next, false);
+            }
+            return Math.max(p2, p3);
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         /* Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
