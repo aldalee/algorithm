@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * https://leetcode.cn/problems/number-of-islands-ii/
  * 免费测试链接: https://www.lintcode.com/problem/434/
+ * LeetCode题目描述: https://leetcode.ca/2016-09-30-305-Number-of-Islands-II/
  * 岛屿数量II
  * @author HuanyuLee
  * @date 2023/5/23
