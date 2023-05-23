@@ -134,8 +134,6 @@ public class Code0200_NumberOfIslands {
                 }
             }
         }
-        // 注意，虽然上面的3个for循环看似很多，但是优化了常数时间
-        // 省去了复杂的判断，不用担心是否越界，从而只进行合并操作
         return set.sets();
     }
 
@@ -165,10 +163,8 @@ public class Code0200_NumberOfIslands {
         int row = 1000;
         int col = 1000;
         char[][] grid1 = generateRandomMatrix(row, col);
-        // char[][] grid2 = Arrays.copyOf(grid1,grid1.length);
         char[][] grid2 = copy(grid1);
         char[][] grid3 = copy(grid1);
-        // char[][] grid3 = Arrays.copyOf(grid1,grid1.length);
         long start = 0;
         long end = 0;
 
