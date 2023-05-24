@@ -2,6 +2,8 @@ package algorithm.greedy;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static algorithm.greedy.MostScheduledMeetingRooms.bestArrange;
 import static algorithm.greedy.MostScheduledMeetingRooms.Meeting;
 import static algorithm.greedy.MostScheduledMeetingRooms.bruteForceEnumerate;
@@ -32,9 +34,9 @@ public class MostScheduledMeetingRoomsTest {
             int expected = bruteForceEnumerate(meetings);
             int actual = bestArrange(meetings);
             if (actual != expected) {
+                System.out.println("Meetings = " + Arrays.toString(meetings));
                 System.out.println("Expected = " + expected);
                 System.out.println("Actual = " + actual);
-                System.out.println("Wrong Answer!");
                 fail();
                 break;
             }
