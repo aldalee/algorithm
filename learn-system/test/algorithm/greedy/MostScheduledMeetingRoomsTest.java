@@ -16,9 +16,9 @@ public class MostScheduledMeetingRoomsTest {
             int r1 = (int) (Math.random() * (timeMax + 1));
             int r2 = (int) (Math.random() * (timeMax + 1));
             if (r1 == r2) {
-                meetings[i] = new MostScheduledMeetingRooms.Meeting(r1, r1 + 1);
+                meetings[i] = new Meeting(r1, r1 + 1);
             } else {
-                meetings[i] = new MostScheduledMeetingRooms.Meeting(Math.min(r1, r2), Math.max(r1, r2));
+                meetings[i] = new Meeting(Math.min(r1, r2), Math.max(r1, r2));
             }
         }
         return meetings;
