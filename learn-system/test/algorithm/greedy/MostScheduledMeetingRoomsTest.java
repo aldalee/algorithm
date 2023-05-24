@@ -1,6 +1,5 @@
 package algorithm.greedy;
 
-
 import org.junit.Test;
 
 import static algorithm.greedy.MostScheduledMeetingRooms.bestArrange;
@@ -29,7 +28,7 @@ public class MostScheduledMeetingRoomsTest {
         int timeMax = 20;
         int timeTimes = 1000000;
         for (int i = 0; i < timeTimes; i++) {
-            MostScheduledMeetingRooms.Meeting[] meetings = generateMeetings(meetingSize, timeMax);
+            Meeting[] meetings = generateMeetings(meetingSize, timeMax);
             int expected = bruteForceEnumerate(meetings);
             int actual = bestArrange(meetings);
             if (actual != expected) {
