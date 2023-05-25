@@ -19,7 +19,7 @@ public class Graph {
         edges = new HashSet<>();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return vertices.isEmpty();
     }
 }
@@ -38,6 +38,11 @@ class Vertex {
         this.value = value;
         nexts = new ArrayList<>();
         edges = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "" + value;
     }
 }
 
