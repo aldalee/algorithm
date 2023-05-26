@@ -23,4 +23,3 @@ public class Graph {
         return vertices.isEmpty();
     }
 }
-
