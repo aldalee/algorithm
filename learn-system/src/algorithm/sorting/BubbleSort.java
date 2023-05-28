@@ -7,6 +7,9 @@ package algorithm.sorting;
  */
 public class BubbleSort {
     public void bubbleSort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
         boolean swapped;
         for (int i = 0; i < arr.length; i++) {
             swapped = false;
@@ -16,8 +19,7 @@ public class BubbleSort {
                     swapped = true;
                 }
             }
-            // 如果在一轮遍历中没有进行任何交换，说明数组已经有序
-            if (!swapped) {
+            if (!swapped) {     // 如果在一轮遍历中没有进行任何交换，说明数组已经有序
                 break;
             }
         }
