@@ -7,7 +7,9 @@ package algorithm.sorting;
  */
 public class HeapSort {
     public static void heapSort(int[] arr) {
-        if (arr == null || arr.length < 2) return;
+        if (arr == null || arr.length < 2) {
+            return;
+        }
         int heapSize = arr.length;
         for (int i = heapSize - 1; i >= 0; i--) {
             heapify(arr, i, heapSize);  //O(n)
