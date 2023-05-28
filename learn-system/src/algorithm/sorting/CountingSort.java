@@ -14,18 +14,24 @@ public class CountingSort {
      * The value of arr only in [1,200].
      */
     public static void countingSort(int[] arr) {
-        if (arr == null || arr.length < 2) return;
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 寻找数组中的最大值
         int max = Integer.MIN_VALUE;
         for (int value : arr) {
             max = Math.max(max, value);
         }
+        // 创建计数数组并统计每个元素的频率
         int[] bucket = new int[max + 1];
-        for (int i : arr) {
-            bucket[i]++;
+        for (int num : arr) {
+            bucket[num]++;
         }
-        for (int i = 0, j = 0; j < bucket.length; j++) {
-            while (bucket[j]-- > 0) {
-                arr[i++] = j;
+        // 根据计数数组重构原始数组
+        int idx = 0;
+        for (int i = 0; i < bucket.length; i++) {
+            while (bucket[i]-- > 0) {
+                arr[idx++] = i;
             }
         }
     }
