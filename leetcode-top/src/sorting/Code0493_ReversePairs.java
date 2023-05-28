@@ -13,19 +13,20 @@ public class Code0493_ReversePairs {
      * 归并排序求解
      */
     public int reversePairs(int[] nums) {
-        return process(nums, 0, nums.length - 1);
+        int[] help = new int[nums.length];
+        return process(nums, 0, nums.length - 1, help);
     }
 
     // arr[l..r]既要排好序，又要返回翻转对数量
-    private int process(int[] arr, int l, int r) {
+    private int process(int[] arr, int l, int r, int[] help) {
         if (l == r) {
             return 0;
         }
         int mid = l + ((r - l) >> 1);
-        return process(arr, l, mid) + process(arr, mid + 1, r) + merge(arr, l, mid, r);
+        return process(arr, l, mid, help) + process(arr, mid + 1, r, help) + merge(arr, l, mid, r, help);
     }
 
-    private int merge(int[] arr, int l, int m, int r) {
+    private int merge(int[] arr, int l, int m, int r, int[] help) {
         int ans = 0;
         int window = m + 1;     // 目前囊括进来的数，[m+1, window)
         // 先进行统计
@@ -36,7 +37,6 @@ public class Code0493_ReversePairs {
             ans += window - m - 1;
         }
         // 再进行合并
-        int[] help = new int[r - l + 1];
         int i = 0;
         int p1 = l, p2 = m + 1;
         while (p1 <= m && p2 <= r) {
@@ -48,8 +48,9 @@ public class Code0493_ReversePairs {
         while (p2 <= r) {
             help[i++] = arr[p2++];
         }
-        for (i = 0; i < help.length; i++) {
-            arr[l + i] = help[i];
+        i = 0;
+        for (int p = l; p <= r; p++) {
+            arr[p] = help[i++];
         }
         return ans;
     }
