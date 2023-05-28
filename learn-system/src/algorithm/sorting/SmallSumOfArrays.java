@@ -9,27 +9,27 @@ import java.util.ArrayList;
  */
 public class SmallSumOfArrays {
     /**
-     * 归并排序求解小和问题（牛客网）
+     * 归并排序求解
      */
     public long calArray(ArrayList<Integer> nums) {
         int[] arr = new int[nums.size()];
+        int[] help = new int[nums.size()];
         for (int i = 0; i < nums.size(); i++) {
             arr[i] = nums.get(i);
         }
-        return process(arr, 0, nums.size() - 1);
+        return process(arr, 0, nums.size() - 1, help);
     }
 
     // arr[l...r]既要排好序，又要返回小和
-    private long process(int[] arr, int l, int r) {
+    private long process(int[] arr, int l, int r, int[] help) {
         if (l == r) {
             return 0;
         }
         int mid = l + ((r - l) >> 1);
-        return process(arr, l, mid) + process(arr, mid + 1, r) + merge(arr, l, mid, r);
+        return process(arr, l, mid, help) + process(arr, mid + 1, r, help) + merge(arr, l, mid, r, help);
     }
 
-    private long merge(int[] arr, int l, int m, int r) {
-        int[] help = new int[r - l + 1];
+    private long merge(int[] arr, int l, int m, int r, int[] help) {
         int i = 0;
         int p1 = l, p2 = m + 1;
         long sum = 0;
@@ -46,8 +46,9 @@ public class SmallSumOfArrays {
         while (p2 <= r) {
             help[i++] = arr[p2++];
         }
-        for (i = 0; i < help.length; i++) {
-            arr[l + i] = help[i];
+        i = 0;
+        for (int p = l; p <= r; p++) {
+            arr[p] = help[i++];
         }
         return sum;
     }
