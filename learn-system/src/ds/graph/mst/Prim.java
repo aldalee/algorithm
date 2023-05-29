@@ -16,7 +16,7 @@ import java.util.Set;
  * @date 2023/5/26
  */
 public class Prim {
-    public Set<Edge> primMST(Graph graph) {
+    public static Set<Edge> primMST(Graph graph) {
         // 解锁的边进入小根堆
         PriorityQueue<Edge> heap = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
         Set<Vertex> set = new HashSet<>();          // 记录被解锁的顶点
