@@ -13,4 +13,9 @@ public class Edge {
         this.dest = dest;
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "[" + src + ", " + dest + ", " + weight + "]";
+    }
 }
