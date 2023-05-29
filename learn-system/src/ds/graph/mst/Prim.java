@@ -12,6 +12,8 @@ import java.util.Set;
 /**
  * 最小生成树 —— 普里姆算法
  * 针对无向图
+ * 参考博客: Why Can’t Prim’s or Kruskal’s Algorithms Be Used on a Directed Graph?
+ * 博客地址: https://www.baeldung.com/cs/prims-kruskals-on-directed-graph
  * @author HuanyuLee
  * @date 2023/5/26
  */
