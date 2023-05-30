@@ -1,4 +1,4 @@
-package algorithm.recursive;
+package algorithm.recursive.trial;
 
 /**
  * Tower of Hanoi
