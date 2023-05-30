@@ -39,13 +39,11 @@ public class FullPermutation {
             return ans;
         }
         char[] str = string.toCharArray();
-        // fuc(str, 0, ans);
-        boolean[] visit = new boolean[256];
-        fuc(str, 0, ans, visit);
+        func(str, 0, ans);
         return ans;
     }
 
-    private static void fuc(char[] str, int idx, List<String> ans) {
+    private static void func(char[] str, int idx, List<String> ans) {
         if (idx == str.length) {
             ans.add(String.valueOf(str));
             return;
@@ -55,14 +53,14 @@ public class FullPermutation {
             if (!visit[str[i]]) {         // 分支限界
                 visit[str[i]] = true;
                 swap(str, idx, i);
-                fuc(str, idx + 1, ans);
+                func(str, idx + 1, ans);
                 swap(str, idx, i);
             }
         }
     }
 
     // 下面的代码是错误的！visit不能共享！
-    private static void fuc(char[] str, int idx, List<String> ans, boolean[] visit) {
+    private static void func(char[] str, int idx, List<String> ans, boolean[] visit) {
         if (idx == str.length) {
             ans.add(String.valueOf(str));
             return;
@@ -71,7 +69,7 @@ public class FullPermutation {
             if (!visit[str[i]]) {         // 分支限界
                 visit[str[i]] = true;
                 swap(str, idx, i);
-                fuc(str, idx + 1, ans, visit);
+                func(str, idx + 1, ans, visit);
                 swap(str, idx, i);
             }
         }
