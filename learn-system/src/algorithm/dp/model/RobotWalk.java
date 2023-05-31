@@ -1,9 +1,9 @@
-package algorithm.dp.example;
+package algorithm.dp.model;
 
 import java.util.Arrays;
 
 /**
- * 机器人走步
+ * 机器人走步（从左往右的尝试模型）
  * ============ 例题，感受从暴力递归到动态规划的过程 =============
  * 假设有排成一行的N个位置，记为1~N（N>=2）
  * 开始时机器人在其中的M位置上（M ∈ [1,N]）
