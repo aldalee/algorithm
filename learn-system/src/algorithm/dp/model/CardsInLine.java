@@ -1,9 +1,9 @@
-package algorithm.dp.example;
+package algorithm.dp.model;
 
 import java.util.Arrays;
 
 /**
- * 卡片博弈
+ * 卡片博弈（范围上的尝试模型）
  * ============ 例题，感受从暴力递归到动态规划的过程 =============
  * 给定int[] cards，代表数值不同的纸牌，玩家A和玩家B依次拿走每张纸牌
  * 规定玩家A先拿，玩家B后拿，但每个玩家每次只能拿走最左或最右的纸牌
