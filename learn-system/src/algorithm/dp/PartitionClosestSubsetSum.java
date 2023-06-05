@@ -3,8 +3,8 @@ package algorithm.dp;
 import java.util.Arrays;
 
 /**
- * 分割最接近的子集和（0-1背包问题）
- * 给定一个正数数组nums，请把nums中所有的数分成两个集合，
+ * 数组分割成累加和尽量相等的两个集合（0-1背包问题）
+ * 给定一个正数数组nums，请把nums中所有的数分成两个集合，个数随意
  * 尽量让两个集合的累加和接近，返回最接近的情况下，较小集合的累加和
  * @author HuanyuLee
  * @date 2023/6/5
