@@ -1,4 +1,4 @@
-package recall;
+package algorithm.recall;
 
 /**
  * N皇后问题
